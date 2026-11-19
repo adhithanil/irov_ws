@@ -1,0 +1,13 @@
+# Goal: collect one sediment sample from the seabed.
+float64 target_mass_g      # desired sample mass in grams (<=0 -> default 50 g)
+float64 max_duration_s     # overall safety timeout in seconds (<=0 -> default 30 s)
+---
+# Result
+bool success               # true only if a full sample was collected and stowed
+float64 collected_mass_g   # how much was actually collected
+string message             # human-readable outcome / fail-safe reason
+---
+# Feedback
+string phase               # ARMING / LOWERING / PUMPING / SEALING / STOWING
+float64 collected_mass_g   # accumulated sample mass so far
+float64 elapsed_s          # seconds since the sequence started
